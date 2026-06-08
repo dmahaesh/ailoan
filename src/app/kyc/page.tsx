@@ -148,7 +148,7 @@ function Field({
       </label>
       <input
         {...rest}
-        className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
+        className="w-full rounded-xl border-2 border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
       />
     </div>
   );
@@ -163,7 +163,7 @@ function Select({ label, options }: { label: string; options: string[] }) {
       <div className="relative">
         <select
           defaultValue=""
-          className="w-full appearance-none rounded-xl border border-neutral-200 bg-white px-4 py-3 pr-10 text-sm text-neutral-900 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
+          className="w-full appearance-none rounded-xl border-2 border-neutral-300 bg-white px-4 py-3 pr-10 text-sm text-neutral-900 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
         >
           <option value="" disabled>
             Select...

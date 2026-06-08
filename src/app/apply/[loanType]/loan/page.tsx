@@ -98,7 +98,7 @@ export default function LoanStep({
                   className={`shrink-0 rounded-full border px-4 py-2 text-xs font-semibold transition ${
                     isActive
                       ? "border-brand bg-brand text-white"
-                      : "border-neutral-200 bg-white text-neutral-700"
+                      : "border-neutral-300 bg-white text-neutral-700"
                   }`}
                 >
                   {t} mo

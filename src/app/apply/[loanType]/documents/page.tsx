@@ -106,7 +106,7 @@ export default function DocumentsStep({
               className={`flex w-full items-center justify-between rounded-xl border-2 border-dashed p-4 text-left transition ${
                 filename
                   ? "border-brand bg-brand-soft"
-                  : "border-neutral-200 bg-neutral-50 active:bg-neutral-100"
+                  : "border-neutral-300 bg-neutral-50 active:bg-neutral-100"
               }`}
             >
               <div className="flex items-center gap-3">

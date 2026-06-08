@@ -153,7 +153,7 @@ function FormField({
       <div
         className={`flex items-center overflow-hidden rounded-xl border-2 bg-white transition ${
           valid
-            ? "border-neutral-200 focus-within:border-brand"
+            ? "border-neutral-300 focus-within:border-brand"
             : "border-red-300 focus-within:border-red-500"
         }`}
       >

@@ -14,7 +14,7 @@ export function Field({
       <input
         required={required}
         {...rest}
-        className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
+        className="w-full rounded-xl border-2 border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
       />
     </div>
   );
@@ -36,7 +36,7 @@ export function Select({
         <select
           required={required}
           {...rest}
-          className="w-full appearance-none rounded-xl border border-neutral-200 bg-white px-4 py-3 pr-10 text-sm text-neutral-900 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
+          className="w-full appearance-none rounded-xl border-2 border-neutral-300 bg-white px-4 py-3 pr-10 text-sm text-neutral-900 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
         >
           <option value="">Select...</option>
           {options.map((o) => (
@@ -65,7 +65,7 @@ export function Textarea({
       <textarea
         required={required}
         {...rest}
-        className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
+        className="w-full rounded-xl border-2 border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
       />
     </div>
   );
