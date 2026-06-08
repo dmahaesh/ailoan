@@ -4,6 +4,7 @@ import { use, useEffect, useState } from "react";
 import { useRouter, notFound } from "next/navigation";
 import { ApplyShell, StickyAction } from "@/components/apply/ApplyShell";
 import { Field, Select, Textarea } from "@/components/apply/Field";
+import { DemoFillButton } from "@/components/apply/DemoFillButton";
 import { getLoanProduct, INDIAN_STATES } from "@/lib/loanProducts";
 import { useApply, ApplyData } from "@/lib/applyStore";
 import { loadCustomer } from "@/lib/customer";
@@ -50,6 +51,7 @@ export default function PersonalStep({
       backHref={`/apply/${loanType}/loan`}
     >
       <form onSubmit={onSubmit} className="space-y-4">
+        <DemoFillButton onFill={(d) => setForm((f) => ({ ...f, ...d }))} />
         <Field
           label="Full Name (as per PAN)"
           required

@@ -4,6 +4,7 @@ import { use, useEffect, useState } from "react";
 import { useRouter, notFound } from "next/navigation";
 import { ApplyShell, StickyAction } from "@/components/apply/ApplyShell";
 import { Field } from "@/components/apply/Field";
+import { DemoFillButton } from "@/components/apply/DemoFillButton";
 import { CameraIcon } from "@/components/icons";
 import { getLoanProduct } from "@/lib/loanProducts";
 import { useApply, ApplyData, loadApply, clearApply } from "@/lib/applyStore";
@@ -80,6 +81,19 @@ export default function DocumentsStep({
       backHref={`/apply/${loanType}/financial`}
     >
       <form onSubmit={onSubmit} className="space-y-5">
+        <DemoFillButton
+          onFill={(d) => {
+            const stamp = new Date().toISOString().slice(0, 10);
+            setForm((f) => ({
+              ...f,
+              ...d,
+              docId: `pan_${stamp}.pdf`,
+              docAddress: `aadhaar_${stamp}.pdf`,
+              docIncome: `salary_slip_${stamp}.pdf`,
+              docBank: `bank_statement_${stamp}.pdf`,
+            }));
+          }}
+        />
         <Section title="Documents" />
 
         {DOCS.map((d) => {

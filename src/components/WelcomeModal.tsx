@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Logo } from "@/components/Logo";
 import { saveCustomer } from "@/lib/customer";
+import { generateDemoData } from "@/lib/demoData";
 
 export function WelcomeModal({ onDone }: { onDone: () => void }) {
   const [name, setName] = useState("");
@@ -48,7 +49,20 @@ export function WelcomeModal({ onDone }: { onDone: () => void }) {
           Tell us a bit about yourself to get started.
         </p>
 
-        <form onSubmit={onSubmit} className="mt-5 space-y-3.5">
+        <button
+          type="button"
+          onClick={() => {
+            const d = generateDemoData();
+            setName(d.fullName ?? "");
+            setPhone(d.phone ?? "");
+            setEmail(d.email ?? "");
+          }}
+          className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-xl border-2 border-dashed border-amber-300 bg-amber-50 px-3 py-2 text-[11px] font-bold text-amber-800 active:bg-amber-100"
+        >
+          🧪 Fill with demo data
+        </button>
+
+        <form onSubmit={onSubmit} className="mt-3 space-y-3.5">
           <FormField
             label="Full Name"
             placeholder="Aarav Sharma"

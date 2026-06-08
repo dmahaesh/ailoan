@@ -4,6 +4,7 @@ import { use, useEffect, useState } from "react";
 import { useRouter, notFound } from "next/navigation";
 import { ApplyShell, StickyAction } from "@/components/apply/ApplyShell";
 import { Field, Select } from "@/components/apply/Field";
+import { DemoFillButton } from "@/components/apply/DemoFillButton";
 import { getLoanProduct, INDIAN_BANKS } from "@/lib/loanProducts";
 import { useApply, ApplyData } from "@/lib/applyStore";
 
@@ -47,6 +48,7 @@ export default function FinancialStep({
       backHref={`/apply/${loanType}/personal`}
     >
       <form onSubmit={onSubmit} className="space-y-5">
+        <DemoFillButton onFill={(d) => setForm((f) => ({ ...f, ...d }))} />
         <Section title="Employment" />
 
         <Select
