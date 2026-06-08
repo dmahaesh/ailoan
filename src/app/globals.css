@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-brand: #2ECC71;
+  --color-brand-dark: #27AE60;
+  --color-brand-soft: #E8F8EF;
+  --color-accent: #F4D03F;
+  --font-sans: var(--font-geist-sans);
+}
+
+html, body {
+  background: #f3f4f6;
+  color: #111827;
+  -webkit-tap-highlight-color: transparent;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+}
+
+/* Hide scrollbars inside the phone frame for a more app-like feel */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+/* ---------- Keyframes ---------- */
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes apply-pulse {
+  0%, 100% {
+    box-shadow: 0 6px 14px -4px rgba(46, 204, 113, 0.5),
+                0 0 0 0 rgba(46, 204, 113, 0.45);
+  }
+  50% {
+    box-shadow: 0 6px 14px -4px rgba(46, 204, 113, 0.55),
+                0 0 0 8px rgba(46, 204, 113, 0);
+  }
+}
+
+@keyframes shimmer-sweep {
+  0%   { transform: translateX(-120%) skewX(-20deg); }
+  60%  { transform: translateX(220%) skewX(-20deg); }
+  100% { transform: translateX(220%) skewX(-20deg); }
+}
+
+@keyframes coin-bob {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50%      { transform: translateY(-4px) rotate(6deg); }
+}
+
+/* ---------- Utilities ---------- */
+
+.animate-slide-down  { animation: slide-down 500ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-rise-in     { animation: rise-in 520ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-fade-in     { animation: fade-in 600ms ease-out both; }
+.animate-apply-pulse { animation: apply-pulse 2.4s ease-in-out infinite; }
+.animate-coin-bob    { animation: coin-bob 3s ease-in-out infinite; }
+
+/* Shimmer overlay for the green header */
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 70%
+  );
+  animation: shimmer-sweep 4.5s ease-in-out infinite;
+}
+
+/* Card tap feedback */
+.tap-card {
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.tap-card:active {
+  transform: scale(0.985);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-slide-down,
+  .animate-rise-in,
+  .animate-fade-in,
+  .animate-apply-pulse,
+  .animate-coin-bob,
+  .shimmer::after {
+    animation: none !important;
+  }
+}
