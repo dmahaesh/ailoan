@@ -49,18 +49,29 @@ export function WelcomeModal({ onDone }: { onDone: () => void }) {
           Tell us a bit about yourself to get started.
         </p>
 
-        <button
-          type="button"
-          onClick={() => {
-            const d = generateDemoData();
-            setName(d.fullName ?? "");
-            setPhone(d.phone ?? "");
-            setEmail(d.email ?? "");
-          }}
-          className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-xl border-2 border-dashed border-amber-300 bg-amber-50 px-3 py-2 text-[11px] font-bold text-amber-800 active:bg-amber-100"
-        >
-          🧪 Fill with demo data
-        </button>
+        <div className="mt-4 flex items-center justify-between gap-3 rounded-2xl border-2 border-amber-200 bg-amber-50/60 p-3">
+          <div className="flex items-center gap-2.5">
+            <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-amber-100 text-base">
+              🧪
+            </div>
+            <div className="leading-tight">
+              <p className="text-xs font-bold text-amber-900">Just testing?</p>
+              <p className="text-[10px] text-amber-700">Auto-fill the form</p>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => {
+              const d = generateDemoData();
+              setName(d.fullName ?? "");
+              setPhone(d.phone ?? "");
+              setEmail(d.email ?? "");
+            }}
+            className="shrink-0 rounded-full bg-amber-500 px-4 py-2 text-xs font-bold text-white shadow-md transition active:scale-95 active:bg-amber-600"
+          >
+            Auto-fill
+          </button>
+        </div>
 
         <form onSubmit={onSubmit} className="mt-3 space-y-3.5">
           <FormField
